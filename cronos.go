@@ -208,7 +208,7 @@ func (j *CronJob) doRun(log *zap.SugaredLogger) {
 	strOut := string(out)
 	log.Infow("completed", "job", j, "out", strOut, "err", err)
 	if err != nil {
-		panic(err) // FIXME
+		log.Infow("failed", "job", j, "out", strOut, "err", err)
 	}
 }
 
